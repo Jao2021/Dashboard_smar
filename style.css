@@ -1,0 +1,44 @@
+body{
+    margin: 0px;
+    padding: 0px;
+}
+
+header{
+    padding-top: 40px;
+    padding-left: 25%;
+    display: flex;
+    background-color: #00cc7a;
+    height: 10%;
+    justify-content:space-between;
+}
+
+header #logo{
+    padding-right: 100px;
+    height: 50px;
+    width: 100px;
+}
+
+header .menu{
+    padding-top: 30px;
+    justify-content:space-between;
+}
+
+header .menu a{
+    color: white;
+    font-size: 25px;
+    text-decoration: none;
+    padding-left: 70px;
+}
+
+
+
+#chartdiv-pizza {
+    width: 35%;
+    height: 300px;
+  }
+
+  #chartdiv-barlat {
+    width: 50%;
+    height: 200px;
+  }
+
