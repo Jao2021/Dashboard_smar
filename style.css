@@ -1,14 +1,26 @@
 body{
     margin: 0px;
     padding: 0px;
+    font-family:'Times New Roman', Times, serif ;
 }
 
+#loading {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.75);
+    z-index: 9999;
+  }
+
 header{
-    padding-top: 40px;
+    padding-top: 30px;
     padding-left: 25%;
     display: flex;
     background-color: #00cc7a;
-    height: 10%;
+    height: 9%;
     justify-content:space-between;
 }
 
@@ -19,7 +31,8 @@ header #logo{
 }
 
 header .menu{
-    padding-top: 30px;
+    padding-top: 20px;
+    padding-right: 30%;
     justify-content:space-between;
 }
 
@@ -27,18 +40,48 @@ header .menu a{
     color: white;
     font-size: 25px;
     text-decoration: none;
-    padding-left: 70px;
+    padding-left: 50px;
 }
 
 
 
-#chartdiv-pizza {
-    width: 35%;
+#chartdiv-barra {
+    width: 40%;
+    height: 400px;
+  }
+
+
+
+  .graf-atendimentos{
+    margin-top: 3%;
+    font-size: 18px;
+    color: gray;
+  }
+
+  .graf-atendimentos .atend-g1{
+    display: flex;
+    align-items: flex-end;
+    margin-left: 4%;
+    justify-content: space-around;
+  }
+
+  #chartdiv-barra-foto {
+    width: 80%;
+    height: 400px;
+    margin-left: 10%;
+    margin-top: 60px;
+  }
+
+  #chartdiv-barvert-foto {
+    width: 30%;
+    height: 600px;
+    
+  }
+
+  #chartdiv-pizza {
+    width: 40%;
     height: 300px;
   }
 
-  #chartdiv-barlat {
-    width: 50%;
-    height: 200px;
-  }
+
 
