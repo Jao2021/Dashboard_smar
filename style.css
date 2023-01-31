@@ -61,38 +61,44 @@ header .menu a{
     color: gray;
   }
 
+
+  .graf-atendimentos .atend-g1{
+    display: flex;
+    margin-left: 2%;
+  }
+
+  .graf-atendimentos .atend-g2{
+    display: flex;
+    margin-left: 4%;
+    margin-top: 60px;
+    justify-content: space-around;
+  }
+
+
+  #chartdiv-barlat-foto {
+    width: 100%;
+    height: 900px;
+    
+  }
+
+  #chartdiv-pizza {
+    width: 50%;
+    height: 400px;
+  }
+
+
+
+  #chartdiv-roda {
+    width: 50%;
+    height: 300px;
+  }
+
+
   #chartdiv-barra-foto {
     width: 80%;
     height: 400px;
     margin-left: 10%;
     margin-top: 60px;
   }
-
-  .graf-atendimentos .atend-g1{
-    display: flex;
-    align-items: flex-end;
-    margin-left: 4%;
-    justify-content: space-around;
-  }
-
-
-  #chartdiv-barvert-foto {
-    width: 30%;
-    height: 600px;
-    
-  }
-
-
-
-  #chartdiv-pizza {
-    width: 40%;
-    height: 200px;
-  }
-
-  #chartdiv-roda {
-    width: 40%;
-    height: 300px;
-  }
-
 
 
