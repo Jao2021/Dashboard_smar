@@ -3,7 +3,8 @@
         <link rel="stylesheet" href="style.css">
         <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
         <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
-        <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+        <script src="https://cdn.amcharts.com/lib/5/themes/Dataviz.js"></script>
+        <script src="https://cdn.amcharts.com/lib/5/themes/Spirited.js"></script>
     </head>
     <body>
  <!------------------graficos----------------->        
@@ -19,116 +20,415 @@
           // Set themes
           // https://www.amcharts.com/docs/v5/concepts/themes/
           root.setThemes([
-            am5themes_Animated.new(root)
+            am5themes_Dataviz.new(root)
           ]);
+          
           
           
           // Create chart
           // https://www.amcharts.com/docs/v5/charts/xy-chart/
           var chart = root.container.children.push(am5xy.XYChart.new(root, {
-            panX: true,
-            panY: true,
+            panX: false,
+            panY: false,
             wheelX: "panX",
             wheelY: "zoomX",
-            pinchZoomX: true
+            layout: root.verticalLayout
           }));
           
-          // Add cursor
-          // https://www.amcharts.com/docs/v5/charts/xy-chart/cursor/
-          var cursor = chart.set("cursor", am5xy.XYCursor.new(root, {}));
-          cursor.lineY.set("visible", false);
+          
+          // Data
+          var colors = chart.get("colors");
+          
+          var data = [{
+            country: "TI-FRAMEWORK",
+            visits: 159
+          }, {
+            country: "SMARcp",
+            visits: 67,
+          }, {
+            country: "SMARrh",
+            visits: 42,
+          }, {
+            country: "SMARam",
+            visits: 30,
+          }, {
+            country: "SMARsa",
+            visits: 24,
+          }, {
+            country: "Projetos",
+            visits: 15,
+          }, {
+            country: "SMARtb",
+            visits: 14,
+          }, {
+            country: "Portal Transparência",
+            visits: 5,
+          }, {
+            country: "SMARit",
+            visits: 4,
+          }, {
+            country: "DTI",
+            visits: 3,
+          }];
           
           
           // Create axes
           // https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
-          var xRenderer = am5xy.AxisRendererX.new(root, { minGridDistance: 30 });
-          xRenderer.labels.template.setAll({
-            rotation: -90,
-            centerY: am5.p50,
-            centerX: am5.p100,
-            paddingRight: 15
-          });
+          var xRenderer = am5xy.AxisRendererX.new(root, {
+            minGridDistance: 30
+          })
+          
+          var xAxis = chart.xAxes.push(am5xy.CategoryAxis.new(root, {
+            categoryField: "country",
+            renderer: xRenderer,
+            bullet: function(root, axis, dataItem) {
+              return am5xy.AxisBullet.new(root, {
+                location: 0.5,
+                sprite: am5.Picture.new(root, {
+                  width: 24,
+                  height: 24,
+                  centerY: am5.p50,
+                  centerX: am5.p50,
+                  src: dataItem.dataContext.icon
+                })
+              });
+            }
+          }));
           
           xRenderer.grid.template.setAll({
             location: 1
           })
           
-          var xAxis = chart.xAxes.push(am5xy.CategoryAxis.new(root, {
-            maxDeviation: 0.3,
-            categoryField: "country",
-            renderer: xRenderer,
-            tooltip: am5.Tooltip.new(root, {})
-          }));
+          xRenderer.labels.template.setAll({
+            paddingTop: 20
+          });
+          
+          xAxis.data.setAll(data);
           
           var yAxis = chart.yAxes.push(am5xy.ValueAxis.new(root, {
-            maxDeviation: 0.3,
             renderer: am5xy.AxisRendererY.new(root, {
               strokeOpacity: 0.1
             })
           }));
           
           
-          // Create series
+          // Add series
           // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
           var series = chart.series.push(am5xy.ColumnSeries.new(root, {
-            name: "Series 1",
             xAxis: xAxis,
             yAxis: yAxis,
-            valueYField: "value",
-            sequencedInterpolation: true,
-            categoryXField: "country",
-            tooltip: am5.Tooltip.new(root, {
-              labelText: "{valueY}"
-            })
+            valueYField: "visits",
+            categoryXField: "country"
           }));
           
-          series.columns.template.setAll({ cornerRadiusTL: 5, cornerRadiusTR: 5, strokeOpacity: 0 });
-          series.columns.template.adapters.add("fill", function(fill, target) {
+          series.columns.template.setAll({
+            tooltipText: "{categoryX}: {valueY}",
+            tooltipY: 0,
+            strokeOpacity: 0,
+            templateField: "columnSettings"
+          });
+          
+          series.data.setAll(data);
+          
+          
+          // Make stuff animate on load
+          // https://www.amcharts.com/docs/v5/concepts/animations/
+          series.appear();
+          chart.appear(1000, 100);
+          
+          }); // end am5.ready()
+        </script>
+
+        <!--grafico de barras-laterais-->
+        <script>
+          am5.ready(function() {
+          
+          // Create root element
+          // https://www.amcharts.com/docs/v5/getting-started/#Root_element
+          var root = am5.Root.new("chartdiv-barralat");
+          
+          
+          var myTheme = am5.Theme.new(root);
+          
+          myTheme.rule("Grid", ["base"]).setAll({
+            strokeOpacity: 0.1
+          }); 
+          
+          // Set themes
+          // https://www.amcharts.com/docs/v5/concepts/themes/
+          root.setThemes([
+            am5themes_Dataviz.new(root),
+
+            myTheme
+          ]);
+          
+          
+          // Create chart
+          // https://www.amcharts.com/docs/v5/charts/xy-chart/
+          var chart = root.container.children.push(
+            am5xy.XYChart.new(root, {
+              panX: false,
+              panY: false,
+              wheelX: "none",
+              wheelY: "none"
+            })
+          );
+          
+          
+          // Create axes
+          // https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
+          var yRenderer = am5xy.AxisRendererY.new(root, { minGridDistance: 30 });
+          yRenderer.grid.template.set("location", 1);
+          
+          var yAxis = chart.yAxes.push(
+            am5xy.CategoryAxis.new(root, {
+              maxDeviation: 0,
+              categoryField: "country",
+              renderer: yRenderer
+            })
+          );
+          
+          var xAxis = chart.xAxes.push(
+            am5xy.ValueAxis.new(root, {
+              maxDeviation: 0,
+              min: 0,
+              renderer: am5xy.AxisRendererX.new(root, {
+                visible: true,
+                strokeOpacity: 0.1
+              })
+            })
+          );
+          
+          
+          // Create series
+          // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
+          var series = chart.series.push(
+            am5xy.ColumnSeries.new(root, {
+              name: "Series 1",
+              xAxis: xAxis,
+              yAxis: yAxis,
+              valueXField: "value",
+              sequencedInterpolation: true,
+              categoryYField: "country"
+            })
+          );
+          
+          var columnTemplate = series.columns.template;
+          
+          columnTemplate.setAll({
+            draggable: true,
+            cursorOverStyle: "pointer",
+            tooltipText: "drag to rearrange",
+            cornerRadiusBR: 10,
+            cornerRadiusTR: 10,
+            strokeOpacity: 0
+          });
+          columnTemplate.adapters.add("fill", (fill, target) => {
             return chart.get("colors").getIndex(series.columns.indexOf(target));
           });
           
-          series.columns.template.adapters.add("stroke", function(stroke, target) {
+          columnTemplate.adapters.add("stroke", (stroke, target) => {
             return chart.get("colors").getIndex(series.columns.indexOf(target));
           });
           
+          columnTemplate.events.on("dragstop", () => {
+            sortCategoryAxis();
+          });
+          
+          // Get series item by category
+          function getSeriesItem(category) {
+            for (var i = 0; i < series.dataItems.length; i++) {
+              var dataItem = series.dataItems[i];
+              if (dataItem.get("categoryY") == category) {
+                return dataItem;
+              }
+            }
+          }
+          
+          
+          // Axis sorting
+          function sortCategoryAxis() {
+            // Sort by value
+            series.dataItems.sort(function(x, y) {
+              return y.get("graphics").y() - x.get("graphics").y();
+            });
+          
+            var easing = am5.ease.out(am5.ease.cubic);
+          
+            // Go through each axis item
+            am5.array.each(yAxis.dataItems, function(dataItem) {
+              // get corresponding series item
+              var seriesDataItem = getSeriesItem(dataItem.get("category"));
+          
+              if (seriesDataItem) {
+                // get index of series data item
+                var index = series.dataItems.indexOf(seriesDataItem);
+          
+                var column = seriesDataItem.get("graphics");
+          
+                // position after sorting
+                var fy =
+                  yRenderer.positionToCoordinate(yAxis.indexToPosition(index)) -
+                  column.height() / 2;
+          
+                // set index to be the same as series data item index
+                if (index != dataItem.get("index")) {
+                  dataItem.set("index", index);
+          
+                  // current position
+                  var x = column.x();
+                  var y = column.y();
+          
+                  column.set("dy", -(fy - y));
+                  column.set("dx", x);
+          
+                  column.animate({ key: "dy", to: 0, duration: 600, easing: easing });
+                  column.animate({ key: "dx", to: 0, duration: 600, easing: easing });
+                } else {
+                  column.animate({ key: "y", to: fy, duration: 600, easing: easing });
+                  column.animate({ key: "x", to: 0, duration: 600, easing: easing });
+                }
+              }
+            });
+          
+            // Sort axis items by index.
+            // This changes the order instantly, but as dx and dy is set and animated,
+            // they keep in the same places and then animate to true positions.
+            yAxis.dataItems.sort(function(x, y) {
+              return x.get("index") - y.get("index");
+            });
+          }
           
           // Set data
-          var data = [{
-            country: "USA",
-            value: 2025
-          }, {
-            country: "China",
-            value: 1882
-          }, {
-            country: "Japan",
-            value: 1809
-          }, {
-            country: "Germany",
-            value: 1322
-          }, {
-            country: "UK",
-            value: 1122
-          }, {
-            country: "France",
-            value: 1114
-          }, {
-            country: "India",
-            value: 984
-          }, {
-            country: "Spain",
-            value: 711
-          }, {
-            country: "Netherlands",
-            value: 665
-          }, {
-            country: "South Korea",
-            value: 443
-          }, {
-            country: "Canada",
-            value: 441
-          }];
+          var data = [
+            
+          {
+            country: "Olímpia",
+            value: 19
+          }, 
+          {
+            country: "Itatíba",
+            value: 16
+          }, 
+          {
+            country: "Ourinhos",
+            value: 15
+          }, 
+          {
+            country: "Bauru",
+            value: 12
+          }, 
+          {
+            country: "Botucatu",
+            value: 12
+          },
+          {
+            country: "Ituverava",
+            value: 12
+          }, 
+          {
+            country: "Aracruz",
+            value: 11
+          }, 
+          {
+            country: "Bertioga",
+            value: 11
+          }, 
+          {
+            country: "Itapolis",
+            value: 11
+          }, 
+          {
+            country: "Sertãozinho",
+            value: 11
+          },
+          {
+            country: "Vila Velha",
+            value: 10
+          }, 
+          {
+            country: "Alumínio",
+            value: 9
+          }, 
+          {
+            country: "Matão",
+            value: 8
+          }, 
+          {
+            country: "Santa Barbara Doeste",
+            value: 8
+          }, 
+          {
+            country: "Mogí das Cruzes",
+            value: 7
+          },
+          {
+            country: "São Caetano do Sul",
+            value: 7
+          }, 
+          {
+            country: "Bírigui",
+            value: 6
+          }, 
+          {
+            country: "Ribeirão Píres",
+            value: 6
+          }, 
+          {
+            country: "Ituiutaba",
+            value: 5
+          }, 
+          {
+            country: "Osasco",
+            value: 5
+          },
+          {
+            country: "Serra",
+            value: 5
+          }, 
+          {
+            country: "Angatuba",
+            value: 4
+          }, 
+          {
+            country: "Caríacica",
+            value: 4
+          }, 
+          {
+            country: "Cravinhos",
+            value: 4
+          }, 
+          {
+            country: "Luiz Antônio",
+            value: 4
+          },
+          {
+            country: "Valinhos",
+            value: 4
+          }, 
+          {
+            country: "Vitória",
+            value: 4
+          }, 
+          {
+            country: "Atilio Vivacqua",
+            value: 3
+          }, 
+          {
+            country: "Cubatão",
+            value: 3
+          }, 
+          {
+            country: "Guarapari",
+            value: 3
+          },
+          {
+            country: "Mairinque",
+            value: 3
+          }
+        ];
           
-          xAxis.data.setAll(data);
+          yAxis.data.setAll(data);
           series.data.setAll(data);
           
           
@@ -138,9 +438,7 @@
           chart.appear(1000, 100);
           
           }); // end am5.ready()
-          </script>
-
-        <!--grafico de barras laterais-->
+        </script>
         
  <!------------------graficos----------------->  
         
@@ -148,14 +446,19 @@
             <div id="logo">
                 <img href="index.html" src="image/logo.png" >
             </div>
+
             <div class="menu">
-              <a id="dash" href="index.html">Cidades</a>
-              <a id="print" href="chamados.html">Atendimentos</a>
+              
+              <a class="btn third" href="index.html">Cidades</a>
+              <a class="btn third"  href="chamados.html">Atendimentos</a>
             </div>
-
-
         </header>
-        <div id="chartdiv-barra"></div>
+
+        <div class="graf-cidade">
+          <div id="chartdiv-barralat"><h3>Cidades</h3></div>
+          <div id="chartdiv-barra"><h3>Total de atendimentos</h3></div>
+        </div>
+        
       
        
     </body>
