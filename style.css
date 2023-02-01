@@ -114,8 +114,8 @@ header .menu-atendimento a{
     color: gray;
 }
 
-.graf-cidade h3{
-
+#chartdiv-barralat h3{
+    margin-left: 7%;
 }
 
 #chartdiv-barralat {
@@ -124,7 +124,7 @@ header .menu-atendimento a{
   }
 
 #chartdiv-barra {
-    margin-top: 5%;
+    margin-top: 6%;
     margin-left: 5%;
     width: 90%;
     height: 400px;
@@ -184,3 +184,13 @@ header .menu-atendimento a{
     margin-left: 2%;
   }
 
+
+footer{
+    padding-top: 100px;
+}
+
+footer img{
+    width: 100%;
+}
+
+ 

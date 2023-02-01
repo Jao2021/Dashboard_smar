@@ -26,6 +26,15 @@
           root.setThemes([
             am5themes_Dataviz.new(root)
           ]);
+
+          class MyTheme extends am5.Theme {
+            setupDefaultRules() {
+                
+                this.rule("div").setAll({
+                fill: am5.color(0x777777)
+              }); 
+            }
+          }
           
           
           
@@ -448,7 +457,7 @@
         
         <header>
             <div id="logo">
-                <img href="index.html" src="image/logo.png" >
+                <a href="index.html"><img  src="image/logo.png"></a>
             </div>
 
             <div class="menu">
@@ -463,7 +472,10 @@
           <div id="chartdiv-barra"><h3>Total de atendimentos</h3></div>
         </div>
         
-      
+        <footer>
+            <img src="image/footer.png">
+         
+        </footer>
        
         <script>
            setTimeout(function() {
