@@ -1,3 +1,6 @@
+<div id="loading" >    
+  <img src="image/Untitled ‑ Made with FlexClip (1).gif" style="width:100%;height:100%;" />   
+</div>
 <html>
     <head>
         <link rel="stylesheet" href="style.css">
@@ -7,6 +10,7 @@
         <script src="https://cdn.amcharts.com/lib/5/themes/Spirited.js"></script>
     </head>
     <body>
+     
  <!------------------graficos----------------->        
         <!--grafico de barras-->
         <script>
@@ -461,5 +465,16 @@
         
       
        
+        <script>
+           setTimeout(function() {
+              document.getElementById("loading").style.display = "none";
+              }, 1500);
+     
+              document.addEventListener("DOMContentLoaded", function() {
+              document.getElementById("loading").style.display = "block";
+             
+           });
+
+       </script>
     </body>
 </html>
