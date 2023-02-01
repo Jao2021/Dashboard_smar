@@ -137,6 +137,9 @@ header .menu-atendimento a{
   .graf-atendimentos{
     font-size: 18px;
     color: gray;
+  }
+
+  .graf-atendimentos .atend-g1 h3{
     margin-left: 4%;
   }
 
@@ -145,6 +148,7 @@ header .menu-atendimento a{
   .graf-atendimentos .atend-g2{
     display: flex;
     margin-top: 60px;
+    margin-left: 4%;
     justify-content: space-around;
   }
 
@@ -175,6 +179,11 @@ header .menu-atendimento a{
     width: 100%;
     height: 500px;
     margin-top: 60px;
+    margin-left: 0%;
+  }
+
+  #chartdiv-barra-foto h3{
+    margin-left: 4%;
   }
 
 
