@@ -135,8 +135,13 @@ header .menu-atendimento a{
   }
 
 
+  .graf-atendimentos .atend-g1{
+    padding: 3vh 5vw;
+  }
+ 
 
   .graf-atendimentos .atend-g2{
+    padding: 3vh 4vw;
     display: flex;
     margin-top: 60px;
     margin-left: 4%;
