@@ -135,22 +135,15 @@ header .menu-atendimento a{
 
 
   .graf-atendimentos{
-    margin-top: 3%;
     font-size: 18px;
     color: gray;
+    margin-left: 4%;
   }
 
 
-  .graf-atendimentos .atend-g1 h3{
-    display: flex;
-    margin-left: 2%;
-    font-size: 18px;
-    color: gray;
-  }
 
   .graf-atendimentos .atend-g2{
     display: flex;
-    margin-left: 2%;
     margin-top: 60px;
     justify-content: space-around;
   }
@@ -162,11 +155,7 @@ header .menu-atendimento a{
     
   }
 
-  #chartdiv-barlat-foto h3{
-    margin-left: 2%;
-    font-size: 18px;
-    color: gray;
-  }
+ 
 
   #chartdiv-bar {
     width: 50%;
@@ -188,9 +177,7 @@ header .menu-atendimento a{
     margin-top: 60px;
   }
 
-  #chartdiv-barra-foto h3{
-    margin-left: 2%;
-  }
+
 
 
 footer{
