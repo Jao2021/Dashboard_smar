@@ -8,6 +8,7 @@
         <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
         <script src="https://cdn.amcharts.com/lib/5/themes/Dataviz.js"></script>
         <script src="https://cdn.amcharts.com/lib/5/themes/Spirited.js"></script>
+        <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
     </head>
     <body>
      
@@ -174,194 +175,24 @@
     
     // Set data
     var data = [
-    {
-    country: "Bauru - 20",
-      value: 20 
-    }, 
 
     {
-      country: "Botucatu - 20",
-      value: 20
+      country: "Catanduva - 1",
+      value: 1
     },
 
     {
-      country: "Bertioga - 15",
-      value: 15
-    }, 
-
-    {
-      country: "Osasco - 15",
-      value: 15
-    },
-
-    {
-      country: "Mogí das Cruzes - 12",
-      value: 12
-    },
-
-    {
-      country: "Ourinhos - 12",
-      value: 12
-    },
-
-    {
-      country: "Olímpia - 11",
-      value: 11
-    }, 
-
-    {
-      country: "Franco da Rocha - 10",
-      value: 10
-    },
-
-    {
-      country: "Guarapari - 10",
-      value: 10
-    },
-
-
-    {
-      country: "Cubatão - 9",
-      value: 9
-    }, 
-
-    {
-      country: "Vila Velha - 9",
-      value: 9
-    },
-
-    {
-      country: "Ituiutaba - 9",
-      value: 9
-    }, 
-
-    {
-      country: "São Caetano do Sul - 8",
-      value: 8
-    }, 
-
-    {
-      country: "Valinhos - 8",
-      value: 8
-    }, 
-
-    {
-      country: "Aracruz - 7",
-      value: 7
-    }, 
-
-    {
-      country: "Ribeirão Píres - 6",
-      value: 6
-    }, 
-
-    {
-      country: "Itatíba - 6",
-      value: 6
-    },     
-
-    {
-      country: "Vitória - 5",
-      value: 5
-    }, 
-
-    {
-      country: "Itapolis - 4",
-      value: 4
-    }, 
-
-    {
-      country: "Jaboticabal - 4",
-      value: 4
-    },
-      
-
-    {
-      country: "Ribeirão Preto - 3",
-      value: 3
-    }, 
-
-    {
-      country: "Ituverava - 3",
-      value: 3
-    }, 
-
-    {
-      country: "Alumínio - 3",
-      value: 3
-    }, 
-
-    {
-      country: "Bírigui - 3",
-      value: 3
-    }, 
-    {
-      country: "Cravinhos - 3",
-      value: 3
-    }, 
-
-    {
-      country: "Ipatinga - 2",
-      value: 2
-    }, 
-
-    {
-      country: "Itapagipe - 2",
-      value: 2
-    }, 
-
-    {
-      country: "Serra - 2",
-      value: 2
-    }, 
-
-    {
-      country: "Pitangueiras - 2",
-      value: 2
-    }, 
-
-    {
-      country: "Pederneiras - 2",
-      value: 2
-    }, 
-
-    {
-      country: "Nova Odessa - 2",
-      value: 2
-    }, 
-
-    {
-      country: "Marilia - 2",
-      value: 2
-    }, 
-
-    {
-      country: "Matão - 2",
-      value: 2
-    }, 
-
-    {
-      country: "Caríacica - 2",
-      value: 2
-    }, 
-
-    {
-      country: "Piracicaba - 1",
+      country: "Atilio Vivacqua - 1",
       value: 1
     }, 
 
     {
-      country: "Santa Barbara Doeste - 1",
+      country: "Angatuba - 1",
       value: 1
     }, 
 
     {
-      country: "Socorro - 1",
-      value: 1
-    }, 
-    
-    {
-      country: "Sertãozinho - 1",
+      country: "Americana - 1",
       value: 1
     },
 
@@ -371,24 +202,198 @@
     },
 
     {
-      country: "Americana - 1",
+      country: "Sertãozinho - 1",
       value: 1
     },
 
     {
-      country: "Angatuba - 1",
+      country: "Socorro - 1",
       value: 1
     }, 
 
     {
-      country: "Atilio Vivacqua - 1",
+      country: "Santa Barbara Doeste - 1",
       value: 1
     }, 
 
     {
-      country: "Catanduva - 1",
+      country: "Piracicaba - 1",
       value: 1
+    }, 
+
+    {
+      country: "Caríacica - 2",
+      value: 2
+    }, 
+
+    {
+      country: "Matão - 2",
+      value: 2
+    }, 
+
+    {
+      country: "Marilia - 2",
+      value: 2
+    }, 
+
+    {
+      country: "Nova Odessa - 2",
+      value: 2
+    }, 
+
+    {
+      country: "Pederneiras - 2",
+      value: 2
+    }, 
+
+    {
+      country: "Pitangueiras - 2",
+      value: 2
     },
+
+    {
+      country: "Serra - 2",
+      value: 2
+    }, 
+
+    {
+      country: "Itapagipe - 2",
+      value: 2
+    },
+
+    {
+      country: "Ipatinga - 2",
+      value: 2
+    }, 
+
+    {
+      country: "Cravinhos - 3",
+      value: 3
+    }, 
+
+    {
+      country: "Bírigui - 3",
+      value: 3
+    }, 
+
+    {
+      country: "Alumínio - 3",
+      value: 3
+    }, 
+
+    {
+      country: "Ituverava - 3",
+      value: 3
+    }, 
+
+    {
+      country: "Ribeirão Preto - 3",
+      value: 3
+    }, 
+
+    {
+      country: "Jaboticabal - 4",
+      value: 4
+    },
+
+    {
+      country: "Itapolis - 4",
+      value: 4
+    }, 
+
+    {
+      country: "Vitória - 5",
+      value: 5
+    }, 
+
+    {
+      country: "Itatíba - 6",
+      value: 6
+    },     
+
+    {
+      country: "Ribeirão Píres - 6",
+      value: 6
+    }, 
+
+    {
+      country: "Aracruz - 7",
+      value: 7
+    }, 
+
+    {
+      country: "Valinhos - 8",
+      value: 8
+    }, 
+
+    {
+      country: "São Caetano do Sul - 8",
+      value: 8
+    },
+
+    {
+      country: "Ituiutaba - 9",
+      value: 9
+    }, 
+
+    {
+      country: "Vila Velha - 9",
+      value: 9
+    },
+
+    {
+      country: "Cubatão - 9",
+      value: 9
+    }, 
+
+    {
+      country: "Guarapari - 10",
+      value: 10
+    },
+
+    {
+      country: "Franco da Rocha - 10",
+      value: 10
+    },
+
+    {
+      country: "Olímpia - 11",
+      value: 11
+    }, 
+
+    {
+      country: "Ourinhos - 12",
+      value: 12
+    },
+
+    {
+      country: "Mogí das Cruzes - 12",
+      value: 12
+    },
+
+    {
+      country: "Osasco - 15",
+      value: 15
+    },
+
+    {
+      country: "Bertioga - 15",
+      value: 15
+    }, 
+
+    {
+      country: "Botucatu - 20",
+      value: 20
+    },
+
+
+    {
+    country: "Bauru - 20",
+      value: 20 
+    }, 
+
+    
+    
     
   ];
     
@@ -404,6 +409,131 @@
     }); // end am5.ready()
         </script>      
  
+   <!--grafico de barras de tempo-->
+        <script>
+          am5.ready(function() {
+          
+          // Create root element
+          // https://www.amcharts.com/docs/v5/getting-started/#Root_element
+          var root = am5.Root.new("chartdiv-tempo");
+          
+          
+          // Set themes
+          // https://www.amcharts.com/docs/v5/concepts/themes/
+          root.setThemes([
+            am5themes_Animated.new(root)
+          ]);
+
+          class MyTheme extends am5.Theme {
+            setupDefaultRules() {
+                
+                this.rule("div").setAll({
+                fill: am5.color(0x777777)
+              }); 
+            }
+          }
+          
+          
+          
+          // Create chart
+          // https://www.amcharts.com/docs/v5/charts/xy-chart/
+          var chart = root.container.children.push(am5xy.XYChart.new(root, {
+            panX: false,
+            panY: false,
+            wheelX: "panX",
+            wheelY: "zoomX",
+            layout: root.verticalLayout
+          }));
+          
+          
+          // Data
+          var colors = chart.get("colors");
+          
+          var data = [{
+            country: "Mogi das Cruzes",
+            visits: 11.00,
+          },{
+            country: "Bauru",
+            visits: 10.30,
+          }, {
+            country: "Botucatu",
+            visits: 10.20,
+          },  {
+            country: "Bertioga",
+            visits: 3.30,
+          },
+          {
+            country: "Osasco",
+            visits: 2.00,
+          },  ];
+          
+          
+          // Create axes
+          // https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
+          var xRenderer = am5xy.AxisRendererX.new(root, {
+            minGridDistance: 30
+          })
+          
+          var xAxis = chart.xAxes.push(am5xy.CategoryAxis.new(root, {
+            categoryField: "country",
+            renderer: xRenderer,
+            bullet: function(root, axis, dataItem) {
+              return am5xy.AxisBullet.new(root, {
+                location: 0.5,
+                sprite: am5.Picture.new(root, {
+                  width: 24,
+                  height: 24,
+                  centerY: am5.p50,
+                  centerX: am5.p50,
+                  src: dataItem.dataContext.icon
+                })
+              });
+            }
+          }));
+          
+          xRenderer.grid.template.setAll({
+            location: 1
+          })
+          
+          xRenderer.labels.template.setAll({
+            paddingTop: 20
+          });
+          
+          xAxis.data.setAll(data);
+          
+          var yAxis = chart.yAxes.push(am5xy.ValueAxis.new(root, {
+            renderer: am5xy.AxisRendererY.new(root, {
+              strokeOpacity: 0.1
+            })
+          }));
+          
+          
+          // Add series
+          // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
+          var series = chart.series.push(am5xy.ColumnSeries.new(root, {
+            xAxis: xAxis,
+            yAxis: yAxis,
+            valueYField: "visits",
+            categoryXField: "country"
+          }));
+          
+          series.columns.template.setAll({
+            tooltipText: "{categoryX}: {valueY}",
+            tooltipY: 0,
+            strokeOpacity: 0,
+            templateField: "columnSettings"
+          });
+          
+          series.data.setAll(data);
+          
+          
+          // Make stuff animate on load
+          // https://www.amcharts.com/docs/v5/concepts/animations/
+          series.appear();
+          chart.appear(1000, 100);
+          
+          }); // end am5.ready()
+        </script>
  
  <!--grafico de barras-->
         <script>
@@ -446,9 +576,6 @@
           var colors = chart.get("colors");
           
           var data = [{
-            country: "TI-FRAMEWORK",
-            visits: 113
-          }, {
             country: "SMARcp",
             visits: 69,
           }, {
@@ -567,6 +694,7 @@
         <div class="graf-cidade">
           <div id="chartdiv-barralat"><h3>Cidades</h3></div>
           <div id="chartdiv-barra"><h3>Total de atendimentos</h3></div>
+          <div id="chartdiv-tempo"><h3>Tempo</h3></div>
         </div>
         
         <footer>

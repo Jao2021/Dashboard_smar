@@ -10,6 +10,7 @@
         <script src="https://cdn.amcharts.com/lib/5/percent.js"></script> <!--grafico de pizza-->
         <script src="https://cdn.amcharts.com/lib/5/radar.js"></script>
         <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+        <script src="https://cdn.amcharts.com/lib/5/themes/Spirited.js"></script>
     </head> 
     
     <body>
@@ -317,122 +318,7 @@
             }); // end am5.ready()
         </script>
 
-        <!--grafico de bar-->
-        <script>
-            am5.ready(function() {
-            
-            // Create root element
-            // https://www.amcharts.com/docs/v5/getting-started/#Root_element
-            var root = am5.Root.new("chartdiv-bar");
-            
-            // Set themes
-            // https://www.amcharts.com/docs/v5/concepts/themes/
-            root.setThemes([
-              am5themes_Animated.new(root)
-            ]);
-            
-            // Create chart
-            // https://www.amcharts.com/docs/v5/charts/xy-chart/
-            var chart = root.container.children.push(
-              am5xy.XYChart.new(root, {
-                panX: true,
-                panY: true,
-                wheelX: "panX",
-                wheelY: "zoomX"
-              })
-            );
-            
-            // Add cursor
-            // https://www.amcharts.com/docs/v5/charts/xy-chart/cursor/
-            var cursor = chart.set("cursor", am5xy.XYCursor.new(root, {}));
-            cursor.lineY.set("visible", false);
-            
-            // Create axes
-            // https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
-            var xRenderer = am5xy.AxisRendererX.new(root, { minGridDistance: 30 });
-            
-            var xAxis = chart.xAxes.push(
-              am5xy.CategoryAxis.new(root, {
-                maxDeviation: 0.3,
-                categoryField: "country",
-                renderer: xRenderer,
-                tooltip: am5.Tooltip.new(root, {})
-              })
-            );
-            
-            xRenderer.grid.template.setAll({
-              location: 1
-            })
-            
-            var yAxis = chart.yAxes.push(
-              am5xy.ValueAxis.new(root, {
-                maxDeviation: 0.3,
-                renderer: am5xy.AxisRendererY.new(root, {
-                  strokeOpacity: 0.1
-                })
-              })
-            );
-            
-            // Create series
-            // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
-            var series = chart.series.push(
-              am5xy.ColumnSeries.new(root, {
-                name: "Series 1",
-                xAxis: xAxis,
-                yAxis: yAxis,
-                valueYField: "value",
-                sequencedInterpolation: true,
-                categoryXField: "country"
-              })
-            );
-            
-            series.columns.template.setAll({
-              width: am5.percent(120),
-              fillOpacity: 0.9,
-              strokeOpacity: 0
-            });
-            series.columns.template.adapters.add("fill", (fill, target) => {
-              return chart.get("colors").getIndex(series.columns.indexOf(target));
-            });
-            
-            series.columns.template.adapters.add("stroke", (stroke, target) => {
-              return chart.get("colors").getIndex(series.columns.indexOf(target));
-            });
-            
-            series.columns.template.set("draw", function(display, target) {
-              var w = target.getPrivate("width", 0);
-              var h = target.getPrivate("height", 0);
-              display.moveTo(0, h);
-              display.bezierCurveTo(w / 4, h, w / 4, 0, w / 2, 0);
-              display.bezierCurveTo(w - w / 4, 0, w - w / 4, h, w, h);
-            });
-            
-            // Set data
-            var data = [
-            {
-              country: "Chamados no mês",
-              value: 152
-            }, 
-            {
-              country: "Em aberto N1",
-              value: 77
-            }, 
-            {
-              country: "Em aberto N2",
-              value: 18
-            }
-           ];
-            
-            xAxis.data.setAll(data);
-            series.data.setAll(data);
-            
-            // Make stuff animate on load
-            // https://www.amcharts.com/docs/v5/concepts/animations/
-            series.appear(1000);
-            chart.appear(1000, 100);
-            
-            }); // end am5.ready()
-        </script>
+       
 
         <!--grafico de meia roda-->
         <script>
@@ -440,7 +326,7 @@
             
             // Create root element
             // https://www.amcharts.com/docs/v5/getting-started/#Root_element
-            var root = am5.Root.new("chartdiv-onda");
+            var root = am5.Root.new("chartdiv-meiaroda");
             
             
             // Set themes
@@ -649,6 +535,408 @@
             chart.appear(1000, 100);
             
             }); // end am5.ready()
+        </script>
+
+
+        <!--grafico de roda-->
+        <script>
+          am5.ready(function() {
+          
+          // Create root element
+          // https://www.amcharts.com/docs/v5/getting-started/#Root_element
+          var root = am5.Root.new("chartdiv-roda");
+          
+          
+          // Set themes
+          // https://www.amcharts.com/docs/v5/concepts/themes/
+          root.setThemes([
+            am5themes_Spirited.new(root)
+          ]);
+          
+          
+          // Create chart
+          // https://www.amcharts.com/docs/v5/charts/radar-chart/
+          var chart = root.container.children.push(am5radar.RadarChart.new(root, {
+            panX: false,
+            panY: false,
+            startAngle: 180,
+            endAngle: 360,
+            radius: am5.percent(90),
+            layout: root.verticalLayout
+          }));
+          
+          
+          // Colors
+          var colors = am5.ColorSet.new(root, {
+            step: 2
+          });
+          
+          
+          // Measurement #1
+          
+          // Axis
+          var color1 = colors.next();
+          
+          var axisRenderer1 = am5radar.AxisRendererCircular.new(root, {
+            radius: -10,
+            stroke: color1,
+            strokeOpacity: 1,
+            strokeWidth: 6,
+            inside: true
+          });
+          
+          axisRenderer1.grid.template.setAll({
+            forceHidden: true
+          });
+          
+          axisRenderer1.ticks.template.setAll({
+            stroke: color1,
+            visible: true,
+            length: 10,
+            strokeOpacity: 1,
+            inside: true
+          });
+          
+          axisRenderer1.labels.template.setAll({
+            radius: 15,
+            inside: true
+          });
+          
+          var xAxis1 = chart.xAxes.push(am5xy.ValueAxis.new(root, {
+            maxDeviation: 0,
+            min: 0,
+            max: 11,
+            strictMinMax: true,
+            renderer: axisRenderer1
+          }));
+          
+          
+          // Label
+          var label1 = chart.seriesContainer.children.push(am5.Label.new(root, {
+            fill: am5.color(0xffffff),
+            x: -100,
+            y: -60,
+            width: 100,
+            centerX: am5.percent(50),
+            textAlign: "center",
+            centerY: am5.percent(50),
+            fontSize: "2em",
+            text: "11",
+            background: am5.RoundedRectangle.new(root, {
+              fill: color1
+            })
+          }));
+          
+          // Add clock hand
+          var axisDataItem1 = xAxis1.makeDataItem({
+            value: 11,
+            fill: color1,
+            name: "Measurement #1"
+          });
+          
+          var clockHand1 = am5radar.ClockHand.new(root, {
+            pinRadius: 14,
+            radius: am5.percent(98),
+            bottomWidth: 10
+          });
+          
+          clockHand1.pin.setAll({
+            fill: color1
+          });
+          
+          clockHand1.hand.setAll({
+            fill: color1
+          });
+          
+          var bullet1 = axisDataItem1.set("bullet", am5xy.AxisBullet.new(root, {
+            sprite: clockHand1
+          }));
+          
+          xAxis1.createAxisRange(axisDataItem1);
+          
+          axisDataItem1.get("grid").set("forceHidden", true);
+          axisDataItem1.get("tick").set("forceHidden", true);
+          
+          
+          
+          
+          
+          // Legend
+          var legend = chart.children.push(am5.Legend.new(root, {
+            x: am5.p50,
+            centerX: am5.p50
+          }));
+          legend.data.setAll([axisDataItem1, axisDataItem2])
+          
+          
+          // Animate values
+          setInterval(function () {
+            var value1 = Math.round(Math.random() * 160);
+            axisDataItem1.animate({
+              key: "value",
+              to: value1,
+              duration: 1000,
+              easing: am5.ease.out(am5.ease.cubic)
+            });
+            
+            label1.set("text", value1);
+            
+          }, 2000)
+          
+          // chart.bulletsContainer.set("mask", undefined);
+          
+          
+          // // Create axis ranges bands
+          // // https://www.amcharts.com/docs/v5/charts/radar-chart/gauge-charts/#Bands
+          // var bandsData = [{
+          //   title: "Unsustainable",
+          //   color: "#ee1f25",
+          //   lowScore: -40,
+          //   highScore: -20
+          // }, {
+          //   title: "Volatile",
+          //   color: "#f04922",
+          //   lowScore: -20,
+          //   highScore: 0
+          // }, {
+          //   title: "Foundational",
+          //   color: "#fdae19",
+          //   lowScore: 0,
+          //   highScore: 20
+          // }, {
+          //   title: "Developing",
+          //   color: "#f3eb0c",
+          //   lowScore: 20,
+          //   highScore: 40
+          // }, {
+          //   title: "Maturing",
+          //   color: "#b0d136",
+          //   lowScore: 40,
+          //   highScore: 60
+          // }, {
+          //   title: "Sustainable",
+          //   color: "#54b947",
+          //   lowScore: 60,
+          //   highScore: 80
+          // }, {
+          //   title: "High Performing",
+          //   color: "#0f9747",
+          //   lowScore: 80,
+          //   highScore: 100
+          // }];
+          
+          // am5.array.each(bandsData, function (data) {
+          //   var axisRange = xAxis.createAxisRange(xAxis.makeDataItem({}));
+          
+          //   axisRange.setAll({
+          //     value: data.lowScore,
+          //     endValue: data.highScore
+          //   });
+          
+          //   axisRange.get("axisFill").setAll({
+          //     visible: true,
+          //     fill: am5.color(data.color),
+          //     fillOpacity: 0.8
+          //   });
+          
+          //   axisRange.get("label").setAll({
+          //     text: data.title,
+          //     inside: true,
+          //     radius: 15,
+          //     fontSize: "0.9em",
+          //     fill: root.interfaceColors.get("background")
+          //   });
+          // });
+          
+          
+          // Make stuff animate on load
+          chart.appear(1000, 100);
+          
+          }); // end am5.ready()
+        </script>
+
+        <!--grafico de bar-->
+        <script>
+          am5.ready(function() {
+          
+          // Create root element
+          // https://www.amcharts.com/docs/v5/getting-started/#Root_element
+          var root = am5.Root.new("chartdiv-bar");
+          
+          
+          var myTheme = am5.Theme.new(root);
+          
+          myTheme.rule("Grid", ["base"]).setAll({
+            strokeOpacity: 0.1
+          });
+          
+          
+          // Set themes
+          // https://www.amcharts.com/docs/v5/concepts/themes/
+          root.setThemes([
+            am5themes_Animated.new(root),
+            myTheme
+          ]);
+          
+          
+          // Create chart
+          // https://www.amcharts.com/docs/v5/charts/xy-chart/
+          var chart = root.container.children.push(
+            am5xy.XYChart.new(root, {
+              panX: false,
+              panY: false,
+              wheelX: "none",
+              wheelY: "none"
+            })
+          );
+          
+          
+          // Create axes
+          // https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
+          var yRenderer = am5xy.AxisRendererY.new(root, { minGridDistance: 30 });
+          yRenderer.grid.template.set("location", 1);
+          
+          var yAxis = chart.yAxes.push(
+            am5xy.CategoryAxis.new(root, {
+              maxDeviation: 0,
+              categoryField: "country",
+              renderer: yRenderer
+            })
+          );
+          
+          var xAxis = chart.xAxes.push(
+            am5xy.ValueAxis.new(root, {
+              maxDeviation: 0,
+              min: 0,
+              renderer: am5xy.AxisRendererX.new(root, {
+                visible: true,
+                strokeOpacity: 0.1
+              })
+            })
+          );
+          
+          
+          // Create series
+          // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
+          var series = chart.series.push(
+            am5xy.ColumnSeries.new(root, {
+              name: "Series 1",
+              xAxis: xAxis,
+              yAxis: yAxis,
+              valueXField: "value",
+              sequencedInterpolation: true,
+              categoryYField: "country"
+            })
+          );
+          
+          var columnTemplate = series.columns.template;
+          
+          columnTemplate.setAll({
+            draggable: true,
+            cursorOverStyle: "pointer",
+            tooltipText: "drag to rearrange",
+            cornerRadiusBR: 10,
+            cornerRadiusTR: 10,
+            strokeOpacity: 0
+          });
+          columnTemplate.adapters.add("fill", (fill, target) => {
+            return chart.get("colors").getIndex(series.columns.indexOf(target));
+          });
+          
+          columnTemplate.adapters.add("stroke", (stroke, target) => {
+            return chart.get("colors").getIndex(series.columns.indexOf(target));
+          });
+          
+          columnTemplate.events.on("dragstop", () => {
+            sortCategoryAxis();
+          });
+          
+          // Get series item by category
+          function getSeriesItem(category) {
+            for (var i = 0; i < series.dataItems.length; i++) {
+              var dataItem = series.dataItems[i];
+              if (dataItem.get("categoryY") == category) {
+                return dataItem;
+              }
+            }
+          }
+          
+          
+          // Axis sorting
+          function sortCategoryAxis() {
+            // Sort by value
+            series.dataItems.sort(function(x, y) {
+              return y.get("graphics").y() - x.get("graphics").y();
+            });
+          
+            var easing = am5.ease.out(am5.ease.cubic);
+          
+            // Go through each axis item
+            am5.array.each(yAxis.dataItems, function(dataItem) {
+              // get corresponding series item
+              var seriesDataItem = getSeriesItem(dataItem.get("category"));
+          
+              if (seriesDataItem) {
+                // get index of series data item
+                var index = series.dataItems.indexOf(seriesDataItem);
+          
+                var column = seriesDataItem.get("graphics");
+          
+                // position after sorting
+                var fy =
+                  yRenderer.positionToCoordinate(yAxis.indexToPosition(index)) -
+                  column.height() / 2;
+          
+                // set index to be the same as series data item index
+                if (index != dataItem.get("index")) {
+                  dataItem.set("index", index);
+          
+                  // current position
+                  var x = column.x();
+                  var y = column.y();
+          
+                  column.set("dy", -(fy - y));
+                  column.set("dx", x);
+          
+                  column.animate({ key: "dy", to: 0, duration: 600, easing: easing });
+                  column.animate({ key: "dx", to: 0, duration: 600, easing: easing });
+                } else {
+                  column.animate({ key: "y", to: fy, duration: 600, easing: easing });
+                  column.animate({ key: "x", to: 0, duration: 600, easing: easing });
+                }
+              }
+            });
+          
+            // Sort axis items by index.
+            // This changes the order instantly, but as dx and dy is set and animated,
+            // they keep in the same places and then animate to true positions.
+            yAxis.dataItems.sort(function(x, y) {
+              return x.get("index") - y.get("index");
+            });
+          }
+          
+          // Set data
+          var data = [{
+            country: "Em aberto n2 - 18",
+            value: 18
+          }, {
+            country: "Em abertos n1 - 72",
+            value: 78
+          }, {
+            country: "Chamados registrados - 156",
+            value: 156
+          }, ];
+          
+          yAxis.data.setAll(data);
+          series.data.setAll(data);
+          
+          
+          // Make stuff animate on load
+          // https://www.amcharts.com/docs/v5/concepts/animations/
+          series.appear(1000);
+          chart.appear(1000, 100);
+          
+          }); // end am5.ready()
         </script>
          
         <!--grafico de barras com foto-->
@@ -948,13 +1236,18 @@
             <div class="atend-g1">
               <h3>Chamados por operador</h3>
               <div id="chartdiv-barlat-foto"></div>
-               
+              
             </div>
 
+
             <div class="atend-g2">
-                <div id="chartdiv-onda"><h3>Total de atendimentos</h3></div>
-                <div id="chartdiv-bar"></div>
+                <div id="chartdiv-meiaroda"><h3>Indisponibilidade por mês</h3></div>
+                <div id="chartdiv-roda"><h3>Indisponibilidade por dia</h3></div>
             </div>
+
+            
+
+            <div id="chartdiv-bar"><h3></h3></div>
 
             <div id="chartdiv-barra-foto"><h3>Demanda interna por operador</h3></div>
                 

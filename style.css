@@ -159,17 +159,37 @@ header .menu-atendimento a{
   }
 
  
-
-  #chartdiv-bar {
-    width: 50%;
+  #chartdiv-tempo{
+    width: 90%;
     height: 400px;
+    margin: 5%;
+    margin-top: 8% !important;
+  }
+ 
+
+  #chartdiv-bar h3{
+    margin-left: -7%;
   }
 
 
 
-  #chartdiv-onda {
+  #chartdiv-meiaroda {
     width: 50%;
     height: 300px;
+  }
+
+  #chartdiv-roda {
+    width: 50%;
+    height: 300px;
+  }
+
+
+  #chartdiv-bar {
+    width: 80%;
+    height: 300px;
+    margin-left: 8% !important; 
+    
+    margin: 10% 0px;
   }
 
 
