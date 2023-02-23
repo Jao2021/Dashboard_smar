@@ -158,13 +158,41 @@ header .menu-atendimento a{
     
   }
 
+ table{
+  margin-left: 25% !important;
+  margin: 7%;
+ }
  
-  #chartdiv-tempo{
-    width: 90%;
-    height: 400px;
-    margin: 5%;
-    margin-top: 8% !important;
+  table, th, td, caption{
+    border:1px solid #c0c0c0;
+    border-collapse:collapse;padding:20px 50px
   }
+  
+  table caption{
+    background-color:#4BA284;
+    font-weight:bold;
+    color: white;
+  }
+
+  td:nth-child(2),tfoot td:nth-child(1) {
+    text-align:center;
+  }
+
+  
+  tbody tr:nth-child(odd) {
+    background-color: #f2f2f2;
+  }
+  
+  td:nth-child(3),tfoot td:nth-child(2) {
+    text-align:center;
+    font-weight:bold;
+  }
+  
+  td:nth-child(3){
+    width:30%;
+  }
+
+
  
 
   #chartdiv-bar h3{

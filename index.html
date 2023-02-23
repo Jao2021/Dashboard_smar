@@ -409,131 +409,7 @@
     }); // end am5.ready()
         </script>      
  
-   <!--grafico de barras de tempo-->
-        <script>
-          am5.ready(function() {
-          
-          // Create root element
-          // https://www.amcharts.com/docs/v5/getting-started/#Root_element
-          var root = am5.Root.new("chartdiv-tempo");
-          
-          
-          // Set themes
-          // https://www.amcharts.com/docs/v5/concepts/themes/
-          root.setThemes([
-            am5themes_Animated.new(root)
-          ]);
 
-          class MyTheme extends am5.Theme {
-            setupDefaultRules() {
-                
-                this.rule("div").setAll({
-                fill: am5.color(0x777777)
-              }); 
-            }
-          }
-          
-          
-          
-          // Create chart
-          // https://www.amcharts.com/docs/v5/charts/xy-chart/
-          var chart = root.container.children.push(am5xy.XYChart.new(root, {
-            panX: false,
-            panY: false,
-            wheelX: "panX",
-            wheelY: "zoomX",
-            layout: root.verticalLayout
-          }));
-          
-          
-          // Data
-          var colors = chart.get("colors");
-          
-          var data = [{
-            country: "Mogi das Cruzes",
-            visits: 11.00,
-          },{
-            country: "Bauru",
-            visits: 10.30,
-          }, {
-            country: "Botucatu",
-            visits: 10.20,
-          },  {
-            country: "Bertioga",
-            visits: 3.30,
-          },
-          {
-            country: "Osasco",
-            visits: 2.00,
-          },  ];
-          
-          
-          // Create axes
-          // https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
-          var xRenderer = am5xy.AxisRendererX.new(root, {
-            minGridDistance: 30
-          })
-          
-          var xAxis = chart.xAxes.push(am5xy.CategoryAxis.new(root, {
-            categoryField: "country",
-            renderer: xRenderer,
-            bullet: function(root, axis, dataItem) {
-              return am5xy.AxisBullet.new(root, {
-                location: 0.5,
-                sprite: am5.Picture.new(root, {
-                  width: 24,
-                  height: 24,
-                  centerY: am5.p50,
-                  centerX: am5.p50,
-                  src: dataItem.dataContext.icon
-                })
-              });
-            }
-          }));
-          
-          xRenderer.grid.template.setAll({
-            location: 1
-          })
-          
-          xRenderer.labels.template.setAll({
-            paddingTop: 20
-          });
-          
-          xAxis.data.setAll(data);
-          
-          var yAxis = chart.yAxes.push(am5xy.ValueAxis.new(root, {
-            renderer: am5xy.AxisRendererY.new(root, {
-              strokeOpacity: 0.1
-            })
-          }));
-          
-          
-          // Add series
-          // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
-          var series = chart.series.push(am5xy.ColumnSeries.new(root, {
-            xAxis: xAxis,
-            yAxis: yAxis,
-            valueYField: "visits",
-            categoryXField: "country"
-          }));
-          
-          series.columns.template.setAll({
-            tooltipText: "{categoryX}: {valueY}",
-            tooltipY: 0,
-            strokeOpacity: 0,
-            templateField: "columnSettings"
-          });
-          
-          series.data.setAll(data);
-          
-          
-          // Make stuff animate on load
-          // https://www.amcharts.com/docs/v5/concepts/animations/
-          series.appear();
-          chart.appear(1000, 100);
-          
-          }); // end am5.ready()
-        </script>
  
  <!--grafico de barras-->
         <script>
@@ -576,34 +452,34 @@
           var colors = chart.get("colors");
           
           var data = [{
-            country: "SMARcp",
+            country: "SMARcp - 69",
             visits: 69,
           }, {
-            country: "SMARam",
+            country: "SMARam - 57",
             visits: 57,
           },{
-            country: "SMARrh",
+            country: "SMARrh - 54",
             visits: 54,
           },  {
-            country: "SMARsa",
+            country: "SMARsa - 17",
             visits: 17,
           }, {
-            country: "SMARtb",
+            country: "SMARtb - 13",
             visits: 13,
           },{
-            country: "Projetos",
+            country: "Projetos - 5",
             visits: 5,
           },  {
-            country: "Portal Transparência",
+            country: "Portal Transparência - 5",
             visits: 5,
           }, {
-            country: "SMARit",
+            country: "SMARit - 2",
             visits: 2,
           },{
-            country: "SMARfr",
+            country: "SMARfr - 1",
             visits: 1,
           }, {
-            country: "SMARss",
+            country: "SMARss - 1",
             visits: 1,
           }, ];
           
@@ -694,8 +570,49 @@
         <div class="graf-cidade">
           <div id="chartdiv-barralat"><h3>Cidades</h3></div>
           <div id="chartdiv-barra"><h3>Total de atendimentos</h3></div>
-          <div id="chartdiv-tempo"><h3>Tempo</h3></div>
         </div>
+
+        <table>
+          <caption>Tempo de Indisponibilidade</caption>
+          <colgroup>
+            <col span="2">
+            <col span="1" style="background-color:#f2f2f2">
+          </colgroup>
+          <thead>
+            <tr>
+              <th>Cidade</th>
+              <th>Problema Performace</th>
+              <th>Tempo em horas</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Bauru</td>
+              <td>CP</td>
+              <td>10:30 hrs</td>
+            </tr>
+            <tr>
+              <td>Botucatu</td>
+              <td>CP</td>
+              <td>10:20 hrs</td>
+            </tr>
+            <tr>
+              <td>Mogi das Cruzes</td>
+              <td>Geral e CP</td>
+              <td>11:00 hrs</td>
+            </tr>
+            <tr>
+              <td>Osasco</td>
+              <td>CP</td>
+              <td>2:00 hrs</td>
+            </tr>
+            <tr>
+              <td>Bertioga</td>
+              <td>Geral</td>
+              <td>3:30 hrs</td>
+            </tr>
+          </tbody>
+        </table>
         
         <footer>
             <img src="image/footer.png">
