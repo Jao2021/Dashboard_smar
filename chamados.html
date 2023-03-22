@@ -41,41 +41,41 @@
                 }
             },
             {
-                name: "jaime",
-                steps: 5,
-                pictureSettings: {
-                src: ""
-                }
-            },
-            {
-                name: "Gabriel",
-                steps: 6,
-                pictureSettings: {
-                src: "image/gabriel.jpg"
-                }
-            },
-            {
-                name: "Henry",
-                steps: 13,
-                pictureSettings: {
-                src: "image/henry.jpg"
-                }
-            },
-            
-            {
                 name: "Fernando",
-                steps: 14,
+                steps: 6,
                 pictureSettings: {
                 src: "image/fernando.jpg"
                 }
             },
             {
-                name: "João",
-                steps: 15,
+                name: "Gabriel",
+                steps: 8,
                 pictureSettings: {
-                src: "image/joao.jpeg"
+                src: "image/gabriel.jpg"
                 }
             },
+            {
+                name: "Fabio",
+                steps: 11,
+                pictureSettings: {
+                src: "image/fabio.jpg"
+                }
+            },
+            {
+                name: "jaime",
+                steps: 12,
+                pictureSettings: {
+                src: ""
+                }
+            },
+            {
+                name: "Henry",
+                steps: 14,
+                pictureSettings: {
+                src: "image/henry.jpg"
+                }
+            },
+            
             {
                 name: "Ti",
                 steps: 16,
@@ -83,45 +83,46 @@
                 src: "image/smarti.jpg"
                 }
             },
+            
             {
-                name: "Fabio",
-                steps: 29,
+                name: "João",
+                steps: 18,
                 pictureSettings: {
-                src: "image/fabio.jpg"
-                }
-            },
-            {
-                name: "Lucas",
-                steps: 30,
-                pictureSettings: {
-                src: "image/lucas.jpg"
-                }
-            },
-            {
-                name: "Evandro",
-                steps: 33,
-                pictureSettings: {
-                src: "image/evandro.jpg"
+                src: "image/joao.jpeg"
                 }
             },
             {
                 name: "Gustavo",
-                steps: 42,
+                steps: 24,
                 pictureSettings: {
                 src: "image/gustavo.jpg"
                 }
             },
             {
-                name: "Isadora",
-                steps: 45,
+                name: "Lucas",
+                steps: 31,
                 pictureSettings: {
-                src: "image/isa.jpg"
+                src: "image/lucas.jpg"
                 }
             },
-
+            
+            {
+                name: "Isadora",
+                steps: 38,
+                pictureSettings: {
+                src: "image/isadora.jpg"
+                }
+            },
+            {
+                name: "Evandro",
+                steps: 43,
+                pictureSettings: {
+                src: "image/evandro.jpg"
+                }
+            },
             {
                 name: "Alex",
-                steps: 88,
+                steps: 98,
                 pictureSettings: {
                 src: "image/alex.jpg"
                 }
@@ -318,8 +319,6 @@
             }); // end am5.ready()
         </script>
 
-       
-
         <!--grafico de meia roda-->
         <script>
             am5.ready(function() {
@@ -387,7 +386,7 @@
             var xAxis1 = chart.xAxes.push(am5xy.ValueAxis.new(root, {
               maxDeviation: 0,
               min: 0,
-              max: 337,
+              max: 339,
               strictMinMax: true,
               renderer: axisRenderer1
             }));
@@ -403,7 +402,7 @@
               textAlign: "center",
               centerY: am5.percent(50),
               fontSize: "2em",
-              text: "337",
+              text: "339",
               background: am5.RoundedRectangle.new(root, {
                 fill: color1
               })
@@ -411,7 +410,7 @@
             
             // Add clock hand
             var axisDataItem1 = xAxis1.makeDataItem({
-              value: 337,
+              value: 339,
               fill: color1,
               name: "Measurement #1"
             });
@@ -917,14 +916,14 @@
           
           // Set data
           var data = [{
-            country: "Em aberto n2 - 18",
-            value: 18
+            country: "Em aberto n2 - 12",
+            value: 12
           }, {
-            country: "Em abertos n1 - 72",
+            country: "Em abertos n1 - 78",
             value: 78
           }, {
-            country: "Chamados registrados - 156",
-            value: 156
+            country: "Chamados registrados - 107",
+            value: 107
           }, ];
           
           yAxis.data.setAll(data);
@@ -956,58 +955,66 @@
             var data = [
             {
                 name: "Gabriel",
-                steps: 49,
+                steps: 71,
                 pictureSettings: {
                 src: "image/gabriel.jpg"
                 }
             },
             {
-                name: "Lucas",
-                steps: 43,
-                pictureSettings: {
-                src: "image/lucas.jpg"
-                }
-            },
-            {
                 name: "Alex",
-                steps: 36,
+                steps: 48,
                 pictureSettings: {
                 src: "image/alex.jpg"
                 }
             },
-            {
-                name: "Fabio",
-                steps: 36,
-                pictureSettings: {
-                src: "image/fabio.jpg"
-                }
-            },
+            
             {
                 name: "João",
-                steps: 16,
+                steps: 33,
                 pictureSettings: {
                 src: "image/joao.jpeg"
                 }
             },
             {
-                name: "Isadora",
-                steps: 12,
+                name: "Fabio",
+                steps: 32,
                 pictureSettings: {
-                src: "image/isa.jpg"
+                src: "image/fabio.jpg"
+                }
+            },
+            {
+                name: "Evandro",
+                steps: 31,
+                pictureSettings: {
+                src: "image/evandro.jpg"
+                }
+            },
+            {
+                name: "Lucas",
+                steps: 24,
+                pictureSettings: {
+                src: "image/lucas.jpg"
                 }
             },
             {
                 name: "Gustavo",
-                steps: 7,
+                steps: 13,
                 pictureSettings: {
                 src: "image/gustavo.jpg"
                 }
             },
             {
-                name: "Evandro",
-                steps: 7,
+                name: "Isadora",
+                steps: 11,
                 pictureSettings: {
-                src: "image/evandro.jpg"
+                src: "image/isa.jpg"
+                }
+            },
+            {
+                name: "Henry",
+                steps: 3,
+                pictureSettings: {
+                src: "image/henry.jpg"
                 }
             },
             {
@@ -1015,13 +1022,6 @@
                 steps: 1,
                 pictureSettings: {
                 src: "image/fernando.jpg"
-                }
-            },
-            {
-                name: "Henry",
-                steps: 0,
-                pictureSettings: {
-                src: "image/henry.jpg"
                 }
             },
             {
