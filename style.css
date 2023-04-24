@@ -211,6 +211,28 @@ header .menu-atendimento a{
     height: 300px;
   }
 
+  .graf-atendimentos .atend-g3{
+    padding: 3vh 4vw;
+    display: flex;
+    margin-top: 60px;
+    margin-left: 4%;
+    justify-content: space-around;
+  }
+
+  #chartdiv-meiaroda2 {
+    padding-top: 50px;
+    width: 50%;
+    height: 300px;
+  }
+
+  #chartdiv-meiaroda3 {
+    padding-top: 50px;
+    width: 50%;
+    height: 300px;
+  }
+
+
+
 
   #chartdiv-bar {
     width: 80%;
